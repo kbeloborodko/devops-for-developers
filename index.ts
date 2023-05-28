@@ -1,6 +1,14 @@
-import {FmBucket} from "./resources/bucket";
+import {FmBucket, FmBucketArgs} from "./resources/bucket";
 
-new FmBucket({
-    Name: `${Date.now()}-example`,
-    Product: "devops-course"
-});
+const timestamp = Date.now();
+const bucketMetaDataList: FmBucketArgs[] = [
+    {
+        bucketName: `bucket-1-${timestamp}`,
+        Product: `product-1-${timestamp}`
+    }
+];
+
+for (const bucketMetaData of bucketMetaDataList) {
+    new FmBucket(bucketMetaData);
+}
+
