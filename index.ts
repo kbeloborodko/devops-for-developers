@@ -1,14 +1,15 @@
-import {FmBucket, FmBucketArgs} from "./resources/bucket";
+import {FmBucketArgs} from "./resources/bucket";
+import {FmFrontend} from "./services/frontend";
 
 const timestamp = Date.now();
-const bucketMetaDataList: FmBucketArgs[] = [
+const frontendBucketsMetaDataList: FmBucketArgs[] = [
     {
-        bucketName: `bucket-1-${timestamp}`,
+        Name: `frontend-bucket-1-${timestamp}`,
         Product: `product-1-${timestamp}`
     }
 ];
 
-for (const bucketMetaData of bucketMetaDataList) {
-    new FmBucket(bucketMetaData);
+for (const frontendBucketMetaData of frontendBucketsMetaDataList) {
+    new FmFrontend(frontendBucketMetaData);
 }
 

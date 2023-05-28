@@ -2,7 +2,7 @@ import {ComponentResource, CustomResourceOptions, getStack} from "@pulumi/pulumi
 import {s3} from "@pulumi/aws";
 
 export type FmBucketArgs = {
-    bucketName: string;
+    Name: string;
     Product: string;
 }
 
@@ -16,7 +16,7 @@ export class FmBucket extends ComponentResource {
 
         const bucketName = `${resourceName}-${stack}`;
 
-        const bucket = new s3.Bucket(args.bucketName, {
+        const bucket = new s3.Bucket(args.Name, {
             acl: "private",
             bucket: bucketName,
             tags: {
@@ -26,7 +26,7 @@ export class FmBucket extends ComponentResource {
             parent: this
         });
 
-        new s3.BucketPublicAccessBlock(`${args.bucketName}-public-access-block-policy`, {
+        new s3.BucketPublicAccessBlock(`${args.Name}-public-access-block-policy`, {
            bucket: bucket.id,
            blockPublicAcls: true,
            blockPublicPolicy: true,
