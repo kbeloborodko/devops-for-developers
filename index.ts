@@ -1,6 +1,6 @@
 import {FmBucket} from "./resources/bucket";
 
 new FmBucket({
-    Name: "example",
+    Name: `${Date.now()}-example`,
     Product: "devops-course"
 });
