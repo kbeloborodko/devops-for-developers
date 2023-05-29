@@ -5,7 +5,8 @@ const timestamp = Date.now();
 const frontendBucketsMetaDataList: FmBucketArgs[] = [
     {
         Name: `frontend-bucket-1-${timestamp}`,
-        Product: `product-1-${timestamp}`
+        Product: `product-1-${timestamp}`,
+        Public: true
     }
 ];
 
